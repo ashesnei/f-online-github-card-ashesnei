@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Select from './components/Select';
+import Card from './components/Card';
 
 const githubUrl = "https://api.github.com/orgs/adalab/members";
 
@@ -7,8 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userSelected: "",
-      membersList: []
+      memberSelected: null,
+      membersList: null
     }
   }
 
@@ -22,17 +24,23 @@ class App extends Component {
     .then(data => this.setState({ membersList: data}))
   }
 
+  handleSelect = (event) => {
+    this.setState({memberSelected: event.currentTarget.value})
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-         <select name="" id="">
-          <option value="member1">member1</option>
-          <option value="member2">member2</option>
-          <option value="member3">member3</option>
-         </select>
-
+          <Select members={this.state.membersList} handleSelect={this.handleSelect}/>
         </header>
+        <main>
+          {/* {this.state.memberSelected ? 
+          <Card/>
+          :
+          null
+        } */}
+        </main>
       </div>
     );
   }
