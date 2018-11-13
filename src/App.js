@@ -35,11 +35,11 @@ class App extends Component {
           <Select members={this.state.membersList} handleSelect={this.handleSelect}/>
         </header>
         <main>
-          {/* {this.state.memberSelected ? 
-          <Card/>
+          {this.state.memberSelected ? 
+          <Card memberSelected={this.state.memberSelected}/>
           :
           null
-        } */}
+        }
         </main>
       </div>
     );
