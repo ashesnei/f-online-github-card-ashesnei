@@ -6,12 +6,9 @@ class Select extends React.Component {
 		return (
 			<select name="" id="">
 				{
-					members ? 
-						members.map(member => {
-							return	<option value={member.url} onClick={handleSelect}>{member.login}</option>
+					members.map(member => {
+							return	<option key={member.id} value={member.url} onClick={handleSelect}>{member.login}</option>
 						})
-					:
-					<option value="member1">Cargando</option>
 				}
 			</select>
 		);

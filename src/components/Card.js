@@ -9,6 +9,9 @@ class Card extends React.Component {
 	}
 
 	//No pinta datos cuando se crea, solo cuando actualiza. MEJORAR
+	componentWillMount() {
+		this.memberfetch()
+	}
 	componentDidUpdate() {
 		this.memberfetch()
 	}

@@ -3,14 +3,14 @@ import './App.css';
 import Select from './components/Select';
 import Card from './components/Card';
 
-const githubUrl = "https://api.github.com/orgs/adalab/members";
+const githubUrl = "https://api.github.com/orgs/adalab/members?per_page=68";
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       memberSelected: null,
-      membersList: null
+      membersList: []
     }
   }
 
@@ -23,7 +23,7 @@ class App extends Component {
     .then(response => response.json())
     .then(data => this.setState({ membersList: data}))
   }
-
+  
   handleSelect = (event) => {
     this.setState({memberSelected: event.currentTarget.value})
   }
